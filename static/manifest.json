@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+	"name": "chexgt",
+	"version": "0.0.1",
+	"browser_action": {
+		"name": "Open Chexgt",
+		"default_title": "Launch Chexgt",
+		"default_popup": "index.html"
+	}
+}
