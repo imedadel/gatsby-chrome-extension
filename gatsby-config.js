@@ -5,6 +5,22 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-csp`,
+      options: {
+        disableOnDev: true,
+        reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
+        mergeScriptHashes: false, // you can disable scripts sha256 hashes
+        mergeStyleHashes: false, // you can disable styles sha256 hashes
+        mergeDefaultDirectives: false,
+        directives: {
+          "script-src": "'unsafe-inline'",
+          "style-src": "'unsafe-inline'",
+          //"img-src": "'self' data: www.google-analytics.com",
+          // you can add your directives or override defaults
+        },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -18,6 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        manifest_version: 2,
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
